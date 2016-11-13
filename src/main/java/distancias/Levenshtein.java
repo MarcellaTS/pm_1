@@ -26,6 +26,7 @@ public class Levenshtein {
                 int cj = Math.min(1 + Math.min(costs[j], costs[j - 1]), a.charAt(i - 1) == b.charAt(j - 1) ? nw : nw + 1);
                 nw = costs[j];
                 costs[j] = cj;
+                //
             }
         }
         return costs[b.length()];
