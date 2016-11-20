@@ -149,7 +149,7 @@ public class LevenshteinTest {
         //fail("The test case is a prototype.");
     }
     
-    public void test8DistanciaLevenshtein() {
+    public void test10DistanciaLevenshtein() {
         System.out.println("DistanciaLevenshtein");
         String palavra_um = "embaixatriz";
         String palavra_dois = "";
