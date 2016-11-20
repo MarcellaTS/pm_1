@@ -137,4 +137,27 @@ public class LevenshteinTest {
         //fail("The test case is a prototype.");
     }
     
+    public void test9DistanciaLevenshtein() {
+        System.out.println("DistanciaLevenshtein");
+        String palavra_um = "";
+        String palavra_dois = "embaixador";
+        Levenshtein instance = new Levenshtein();
+        int expResult = 10;
+        int result = instance.DistanciaLevenshtein(palavra_um, palavra_dois);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    public void test8DistanciaLevenshtein() {
+        System.out.println("DistanciaLevenshtein");
+        String palavra_um = "embaixatriz";
+        String palavra_dois = "";
+        Levenshtein instance = new Levenshtein();
+        int expResult = 11;
+        int result = instance.DistanciaLevenshtein(palavra_um, palavra_dois);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 }

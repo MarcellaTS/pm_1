@@ -139,4 +139,26 @@ public class DamerauLevenshteinTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
+    public void test10ComputeLevenshteinDistance() {
+        System.out.println("computeLevenshteinDistance");
+        String palavra_um = "";
+        String palavra_dois = "as";
+        int expResult = 2;
+        int result = DamerauLevenshtein.computeLevenshteinDistance(palavra_um, palavra_dois);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+     public void test11ComputeLevenshteinDistance() {
+        System.out.println("computeLevenshteinDistance");
+        String palavra_um = "amarelo";
+        String palavra_dois = "";
+        int expResult = 7;
+        int result = DamerauLevenshtein.computeLevenshteinDistance(palavra_um, palavra_dois);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 }
