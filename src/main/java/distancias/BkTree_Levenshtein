@@ -1,0 +1,156 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package distancias;
+
+import static java.lang.Integer.max;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+/**
+ *
+ * @author Priscila
+ */
+public class BkTree_Levenshtein {
+    
+           public static class NoBK {
+
+                final String palavra;
+
+                final Map<Integer, NoBK> filhos = new java.util.HashMap<Integer, NoBK>();
+
+                public NoBK(String palavra) {
+
+                        this.palavra = palavra;
+
+                }
+
+
+
+                protected NoBK distanciaDoFilho(int pos) {
+
+                        return filhos.get(pos);
+
+                }
+
+
+
+                private void AdicionarFilho(int pos, NoBK filho) {
+
+                        filhos.put(pos, filho);
+
+                }
+
+
+
+                public List<String> Buscar(String no, int distanciaMaxima) {
+
+                        int distancia = Levenshtein.DistanciaLevenshtein(this.palavra, no);
+
+                        List<String> matches = new LinkedList<String>();
+
+                        if (distancia <= distanciaMaxima)
+
+                                matches.add(this.palavra);
+
+                        if (filhos.size() == 0)
+
+                                return matches;
+
+                        int i = max(1, distancia - distanciaMaxima);
+
+                        for (; i <= distancia + distanciaMaxima; i++) {
+
+                                NoBK filho = filhos.get(i);
+
+                                if (filho == null)
+
+                                        continue;
+
+                                matches.addAll(filho.Buscar(no, distanciaMaxima));
+
+                        }
+
+                        return matches;
+
+                }
+
+        }
+
+
+
+        private NoBK raiz;
+
+
+
+        public List<String> Buscar(String q, int distanciaMaxima) {
+
+                return raiz.Buscar(q, distanciaMaxima);
+
+        }
+
+        
+
+        /**
+
+         * Exact word search, same as {@link search(String, 1)}
+
+         * @param q
+
+         * @return match or empty string.
+
+         */
+
+        public String Buscar(String q) {
+
+                List<String> list = raiz.Buscar(q, 1);
+
+                return list.isEmpty() ? "" : list.iterator().next();
+
+        }
+
+        
+
+
+
+        public void Adicionar(String no) {
+
+                if(no == null || no.isEmpty()) throw new IllegalArgumentException("palavra não pode ser nula ou vazia.");
+
+                NoBK NovoNo = new NoBK(no);
+
+                if (raiz == null) {
+
+                        raiz = NovoNo;
+
+                }
+
+                adicionarInterno(raiz, NovoNo);
+
+        }
+
+
+
+        private void adicionarInterno(NoBK src, NoBK NovoNo) {
+
+                if (src.equals(NovoNo))
+
+                        return;
+
+                int distancia = Levenshtein.DistanciaLevenshtein(src.palavra, NovoNo.palavra);
+
+                NoBK NoBK = src.distanciaDoFilho(distancia);
+
+                if (NoBK == null) {
+
+                        src.AdicionarFilho(distancia, NovoNo);
+
+                } else
+
+                        adicionarInterno(NoBK, NovoNo);
+
+        }
+
+}
