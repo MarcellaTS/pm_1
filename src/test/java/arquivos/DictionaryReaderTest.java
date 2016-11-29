@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author marce
  */
-public class LerArquivosTest {
+public class DictionaryReaderTest {
     
-    public LerArquivosTest() {
+    public DictionaryReaderTest() {
     }
     
     @BeforeClass
