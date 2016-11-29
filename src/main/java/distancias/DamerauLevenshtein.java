@@ -9,11 +9,11 @@ package distancias;
  *
  * @author marce
  */
-public class DamerauLevenshtein {
+public class DamerauLevenshtein implements Distancia{
     /*Calcula distância entre palavras pelo algoritmo de Damerau-Levenshtein:
         Essa distância é calculada pelo mínimo de operações para transformar uma palavra na outra.
         As operações consideradas nesse algoritmo são: inserir, deletar, substituir um caracter ou trocar dois carecteres de lugar.*/
-    public static int computeLevenshteinDistance(String palavra_um, String palavra_dois){
+    public int DistanciaEntrePalavras(String palavra_um, String palavra_dois){
         char caracter_x;
         char caracter_y;
         int custo;
@@ -28,7 +28,7 @@ public class DamerauLevenshtein {
             return tamanho_palavra_um;
         }
         
-         int[][] matriz_calcular_distancia = new int[tamanho_palavra_um+1][tamanho_palavra_dois+1];
+        int[][] matriz_calcular_distancia = new int[tamanho_palavra_um+1][tamanho_palavra_dois+1];
 
         for (int x = 0; x <= tamanho_palavra_um; x++) {
             matriz_calcular_distancia[x][0] = x;

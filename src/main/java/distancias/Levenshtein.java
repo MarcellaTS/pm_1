@@ -9,13 +9,23 @@ package distancias;
  *
  * @author marce
  */
-public class Levenshtein {
+public class Levenshtein implements Distancia{
     /*Calcula distância entre palavras pelo algoritmo de Levenshtein:
         Essa distância é calculada pelo mínimo de operações para transformar uma palavra na outra.
         As operações consideradas nesse algoritmo são: inserir, deletar ou substituir um caracter.*/
-    public int DistanciaLevenshtein(String palavra_um, String palavra_dois){
+    public int DistanciaEntrePalavras(String palavra_um, String palavra_dois){
         char[] array_palavra_um = palavra_um.toUpperCase().toCharArray();
         char[] array_palavra_dois = palavra_dois.toUpperCase().toCharArray();
+        
+        int tamanho_palavra_um = palavra_um.length ();
+        int tamanho_palavra_dois = palavra_dois.length ();
+        
+        if (tamanho_palavra_um == 0) {
+            return tamanho_palavra_dois;
+        }
+        if (tamanho_palavra_dois == 0) {
+            return tamanho_palavra_um;
+        }
 
         int[][] matriz_calcular_distancia = new int[array_palavra_um.length + 1][array_palavra_dois.length + 1];
         
