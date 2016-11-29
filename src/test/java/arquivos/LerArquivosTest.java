@@ -49,18 +49,4 @@ public class LerArquivosTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of LerXml method, of class LerArquivos.
-     */
-    @Test
-    public void testLerXml() throws Exception {
-        System.out.println("LerXml");
-        String NomeArquivo = "";
-        LerArquivos instance = new LerArquivos();
-        instance.LerXml(NomeArquivo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
