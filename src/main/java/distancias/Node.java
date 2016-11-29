@@ -13,13 +13,13 @@ import java.util.Set;
  *
  * @author marce
  */
-public class No {
+public class Node {
     public String palavra = null;
-	public HashMap<Integer, No> Filhos = new HashMap<Integer, No>();
+	public HashMap<Integer, Node> Filhos = new HashMap<Integer, Node>();
 
-	public No() { }
+	public Node() { }
 
-	public No(String palavra)
+	public Node(String palavra)
 	{
 		this.palavra = palavra.toLowerCase();
 	}
@@ -32,15 +32,15 @@ public class No {
 		this.palavra = palavra;
 	}
 
-	public HashMap<Integer, No> getFilhos() {
+	public HashMap<Integer, Node> getFilhos() {
 		return Filhos;
 	}
 
-	public void setFilhos(HashMap<Integer, No> Filhos) {
+	public void setFilhos(HashMap<Integer, Node> Filhos) {
 		this.Filhos = Filhos;
 	}	
 
-	public No get(int dist)
+	public Node get(int dist)
 	{
 		return this.get(dist);
 	}
@@ -78,10 +78,10 @@ public class No {
 	public void AdicionarFilho(int ponto, String palavra)
 	{
 		if(this.Filhos == null){
-			Filhos = new HashMap<Integer, No>();
+			Filhos = new HashMap<Integer, Node>();
 		}else{
 			if(!this.Filhos.containsKey(ponto)){
-				Filhos.put(ponto,new No(palavra));
+				Filhos.put(ponto,new Node(palavra));
 			}
 		}
 	}

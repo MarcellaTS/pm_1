@@ -5,7 +5,7 @@
  */
 package tree;
 
-import distancias.No;
+import distancias.Node;
 import java.util.ArrayList;
 import distancias.IDistanceCalculator;
 
@@ -16,7 +16,7 @@ import distancias.IDistanceCalculator;
  * @author marce
  */
 public class BurkhardKellerTree {
-    private No raiz;
+    private Node raiz;
     private int distancia = -1;
     private IDistanceCalculator resultado;
 
@@ -26,19 +26,19 @@ public class BurkhardKellerTree {
     }
     
     //Construtor
-    public BurkhardKellerTree(No raiz, int distancia, IDistanceCalculator resultado) {
+    public BurkhardKellerTree(Node raiz, int distancia, IDistanceCalculator resultado) {
         this.raiz = raiz;
         this.distancia = distancia;
         this.resultado = resultado;
     }
     
     //Get raiz da bktree
-    public No getRaiz() {
+    public Node getRaiz() {
         return raiz;
     }
 
     //Set raiz da bktree
-    public void setRaiz(No raiz) {
+    public void setRaiz(Node raiz) {
         this.raiz = raiz;
     }
 
@@ -81,11 +81,11 @@ public class BurkhardKellerTree {
         palavra = palavra.toLowerCase();
         
         if (raiz == null){
-            raiz = new No(palavra);
+            raiz = new Node(palavra);
             return;
         }
         
-        No no_atual = new No();
+        Node no_atual = new Node();
         no_atual = raiz;
         distancia = GerarDistancia(no_atual.palavra, palavra);
         

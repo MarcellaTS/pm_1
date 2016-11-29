@@ -5,7 +5,7 @@
  */
 package tree;
 
-import distancias.No;
+import distancias.Node;
 import tree.BurkhardKellerTree;
 import java.util.ArrayList;
 
@@ -15,11 +15,10 @@ import java.util.ArrayList;
  */
 public class BurkhardKellerTreeSearchResult {
     //Faz a busca de palavra na bktree criada conforme comparações de forma recursiva
-    public static void Busca(BurkhardKellerTree bkTree, No no, String palavra, int distancia_referencia){
+    public static void Busca(BurkhardKellerTree bkTree, Node no, String palavra, int distancia_referencia){
 	int distancia_entre_palavras_atual = bkTree.GerarDistancia(no.palavra, palavra);
 	int distancia_minima = distancia_entre_palavras_atual - distancia_referencia;
 	int distancia_maxima = distancia_entre_palavras_atual + distancia_referencia;
-
 	if (distancia_entre_palavras_atual <= distancia_referencia){
             bkTree.AdicionarPalavra(palavra);
         }
@@ -27,6 +26,13 @@ public class BurkhardKellerTreeSearchResult {
 	for(int ponto : no.PontosNoIntervalo(distancia_minima, distancia_maxima)){
             Busca(bkTree, no.get(ponto), palavra, distancia_referencia);
 	}
-                
     }
+
+    /*public Object getPalavra(int position) {
+        
+    }*/
+
+    /*public double getDistancia(int position) {
+        
+    }*/
 }

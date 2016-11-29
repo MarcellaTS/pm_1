@@ -45,7 +45,6 @@ public class DictionaryReader {
         for(int contador_palavras = 0; contador_palavras < lista.size(); contador_palavras++){
                     bk_tree.AdicionarPalavra(lista.get(contador_palavras));
         }
-        //System.out.println(bk_tree);
         return bk_tree;
     }
 }

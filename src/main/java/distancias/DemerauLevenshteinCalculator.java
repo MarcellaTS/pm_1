@@ -5,11 +5,18 @@
  */
 package distancias;
 
+import Teclado.KeyboardLayout;
+
 /**
  *
  * @author marce
  */
 public class DemerauLevenshteinCalculator implements IDistanceCalculator{
+    
+    public void LevenshteinCalculator(KeyboardLayout layout){
+        
+    }
+    
     /*Calcula distância entre palavras pelo algoritmo de Damerau-Levenshtein:
         Essa distância é calculada pelo mínimo de operações para transformar uma palavra na outra.
         As operações consideradas nesse algoritmo são: inserir, deletar, substituir um caracter ou trocar dois carecteres de lugar.*/

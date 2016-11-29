@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Teclado;
+package com.mycompany.pm_project_01;
 
 /**
  *
  * @author marce
  */
-public class KeyboardLayoutNeutro extends KeyboardLayout{
+public class SpellChecker {
     
-    //Construtor
-    public KeyboardLayoutNeutro(){
-        
-    }
 }
