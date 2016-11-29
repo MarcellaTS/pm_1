@@ -5,9 +5,9 @@
  */
 package tree;
 
-import distancias.Distancia;
 import distancias.No;
 import java.util.ArrayList;
+import distancias.IDistanceCalculator;
 
 
 
@@ -18,9 +18,9 @@ import java.util.ArrayList;
 public class BurkhardKellerTree {
     	private No raiz;
 	private int distancia = -1;
-	private Distancia resultado;
+	private IDistanceCalculator resultado;
 
-    public BurkhardKellerTree(No raiz, int distancia, Distancia resultado) {
+    public BurkhardKellerTree(No raiz, int distancia, IDistanceCalculator resultado) {
         this.raiz = raiz;
         this.distancia = distancia;
         this.resultado = resultado;
@@ -46,17 +46,17 @@ public class BurkhardKellerTree {
         this.distancia = distancia;
     }
 
-    public Distancia getResultado() {
+    public IDistanceCalculator getResultado() {
         return resultado;
     }
 
-    public void setResultado(Distancia resultado) {
+    public void setResultado(IDistanceCalculator resultado) {
         this.resultado = resultado;
     }
 	
     
 	//Factory will decide the distance that will be used
-	public BurkhardKellerTree(Distancia resultado){
+	public BurkhardKellerTree(IDistanceCalculator resultado){
 		this.resultado = resultado;
 		
 	}

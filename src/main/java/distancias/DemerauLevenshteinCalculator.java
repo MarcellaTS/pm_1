@@ -9,7 +9,7 @@ package distancias;
  *
  * @author marce
  */
-public class DamerauLevenshtein implements Distancia{
+public class DemerauLevenshteinCalculator implements IDistanceCalculator{
     /*Calcula distância entre palavras pelo algoritmo de Damerau-Levenshtein:
         Essa distância é calculada pelo mínimo de operações para transformar uma palavra na outra.
         As operações consideradas nesse algoritmo são: inserir, deletar, substituir um caracter ou trocar dois carecteres de lugar.*/

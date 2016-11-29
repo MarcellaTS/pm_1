@@ -22,6 +22,7 @@ import tree.BurkhardKellerTree;
  * @author marce
  */
 public class LerArquivos {
+    //Lê o arquivo de palavras e monta a árvore
     public BurkhardKellerTree LerTxt(String NomeArquivo){
         System.out.printf("\nConteúdo do arquivo texto:\n");
         ListaDePalavras lista_de_palavras = new ListaDePalavras();
@@ -42,17 +43,5 @@ public class LerArquivos {
         }
         System.out.println();
         return bk_tree;
-    }
-    
-    public KeyboardLayoutList LerXml(String NomeArquivo) throws FileNotFoundException{
-        XMLDecoder d = new XMLDecoder(
-                          new BufferedInputStream(
-                              new FileInputStream(NomeArquivo)));
-        KeyboardLayout layout = new KeyboardLayout();
-        Object result = d.readObject();
-        while(result != null){
-            
-        }
-        d.close();
     }
 }

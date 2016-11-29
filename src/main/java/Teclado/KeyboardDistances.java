@@ -10,8 +10,7 @@ package Teclado;
  * @author marce
  */
 public class KeyboardDistances {
-    private double dist(double width, double height)
-	{
-		return Math.sqrt(width * width + height * height);
-	}
+    private double dist(double width, double height){
+	return Math.sqrt(width * width + height * height);
+    }
 }

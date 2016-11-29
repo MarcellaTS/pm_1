@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entidades;
+package distancias;
 
 /**
  *
  * @author marce
  */
-public class Linha {
-    
+public interface IDistanceCalculator {
+    public int DistanciaEntrePalavras(String palavra_um, String palavra_dois);
 }

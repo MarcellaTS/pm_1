@@ -13,7 +13,7 @@ import java.util.HashMap;
  * @author marce
  */
 public class BKChamadas {
-    private HashMap<String, Distancia> mapeamento = new HashMap<String, Distancia>();
+    private HashMap<String, IDistanceCalculator> mapeamento = new HashMap<String, IDistanceCalculator>();
 	
 	private static BKChamadas instancia = null;
 	
@@ -29,12 +29,12 @@ public class BKChamadas {
 		return instancia;
 	}
 	
-	public Distancia GetMetodo(String MetodoDistancia){
+	public IDistanceCalculator GetMetodo(String MetodoDistancia){
 		if(!mapeamento.containsKey(MetodoDistancia)){
 			if(MetodoDistancia.equals("Levenshtein"))
-				mapeamento.put(MetodoDistancia, new Levenshtein());
+				mapeamento.put(MetodoDistancia, new LevenshteinCalculator());
 			else if(MetodoDistancia.equals("Demerau"))
-				mapeamento.put(MetodoDistancia, new DamerauLevenshtein());
+				mapeamento.put(MetodoDistancia, new DemerauLevenshteinCalculator());
 		}
 		return mapeamento.get(MetodoDistancia);
 	}

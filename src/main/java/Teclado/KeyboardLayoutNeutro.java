@@ -10,6 +10,8 @@ package Teclado;
  * @author marce
  */
 public class KeyboardLayoutNeutro {
+    
+    //Construtor
     public KeyboardLayoutNeutro(){
         
     }

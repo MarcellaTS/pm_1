@@ -9,8 +9,8 @@ package distancias;
  *
  * @author marce
  */
-public class Levenshtein implements Distancia{
-    /*Calcula distância entre palavras pelo algoritmo de Levenshtein:
+public class LevenshteinCalculator implements IDistanceCalculator{
+    /*Calcula distância entre palavras pelo algoritmo de LevenshteinCalculator:
         Essa distância é calculada pelo mínimo de operações para transformar uma palavra na outra.
         As operações consideradas nesse algoritmo são: inserir, deletar ou substituir um caracter.*/
     public int DistanciaEntrePalavras(String palavra_um, String palavra_dois){
