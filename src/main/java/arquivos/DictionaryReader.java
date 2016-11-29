@@ -21,9 +21,9 @@ import tree.BurkhardKellerTree;
  *
  * @author marce
  */
-public class LerArquivos {
+public class DictionaryReader {
     //Lê o arquivo de palavras e monta a árvore
-    public BurkhardKellerTree LerTxt(String NomeArquivo){
+    public BurkhardKellerTree loadFromFile(String NomeArquivo){
         System.out.printf("\nConteúdo do arquivo texto:\n");
         ListaDePalavras lista_de_palavras = new ListaDePalavras();
         BurkhardKellerTree bk_tree = new BurkhardKellerTree();
@@ -34,7 +34,6 @@ public class LerArquivos {
             while (linha != null) {
                 lista_de_palavras.AddPalavra(linha);
                 System.out.printf("%s\n", linha);
-                bk_tree.AdicionarPalavra(linha);
                 linha = ler_arquivo.readLine();
             }
             arquivo.close();
@@ -42,6 +41,11 @@ public class LerArquivos {
             System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
         }
         System.out.println();
+        ArrayList<String> lista = new ArrayList<>();
+        for(int contador_palavras = 0; contador_palavras < lista.size(); contador_palavras++){
+                    bk_tree.AdicionarPalavra(lista.get(contador_palavras));
+        }
+        //System.out.println(bk_tree);
         return bk_tree;
     }
 }
