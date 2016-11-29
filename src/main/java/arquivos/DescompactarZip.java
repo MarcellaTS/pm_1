@@ -22,26 +22,29 @@ import java.util.zip.ZipInputStream;
  * @author marce
  */
 public class DescompactarZip {
+    
+    //Descompacta o arquivo zip e salva ele no diretório
     public void ExtrairConteudoZip(String nome_arquivo){
         try {
             ZipFile arquivo_zip = new ZipFile(nome_arquivo);
             Enumeration<?> listagem_conteudo = arquivo_zip.entries();
+            //Identifica se ainda há arquivos dentro do zip
             while (listagem_conteudo.hasMoreElements()) {
                 ZipEntry conteudo = (ZipEntry) listagem_conteudo.nextElement();
                 String nome_conteudo = conteudo.getName();
                 System.out.printf("name: %-20s\n", nome_conteudo);
-
+                //Identifica arquivo que pertence ao zip
                 File arquivo = new File(nome_conteudo);
                 if (nome_conteudo.endsWith("/")) {
                     arquivo.mkdirs();
                     continue;
 		}
-
+                //Identifica se o arquivo está dentro de um diretório no zip
 		File arquivo_pai = arquivo.getParentFile();
 		if (arquivo_pai != null) {
                     arquivo_pai.mkdirs();
 		}
-
+                //Lê arquivo e guarda
 		InputStream leitor_dados = arquivo_zip.getInputStream(conteudo);
 		FileOutputStream escritor_dados = new FileOutputStream(arquivo);
 		byte[] bytes = new byte[1024];
