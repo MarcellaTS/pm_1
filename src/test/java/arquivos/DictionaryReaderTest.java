@@ -38,14 +38,14 @@ public class DictionaryReaderTest {
     }
 
     /**
-     * Test of LerTxt method, of class LerArquivos.
+     * Test of loadFromFile method, of class DictionaryReader.
      */
     @Test
-    public void testLerTxt() {
+    public void testLoadFromFile() {
         System.out.println("LerTxt");
         String NomeArquivo = "dictionary pt-br.dic";
-        LerArquivos instance = new LerArquivos();
-        instance.LerTxt(NomeArquivo);
+        DictionaryReader instance = new DictionaryReader();
+        instance.loadFromFile(NomeArquivo);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
